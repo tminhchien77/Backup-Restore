@@ -129,8 +129,6 @@ namespace backup_restore
         private void btnCreateDevice_EnabledChanged(object sender, EventArgs e)
         {
             btnBackup.Enabled= btnRestore.Enabled = btnRestoreAtTime.Enabled = !btnCreateDevice.Enabled;
-            
-            
         }
 
         private void btnRestore_Click(object sender, EventArgs e)
@@ -157,6 +155,17 @@ namespace backup_restore
             frmRestoreAtTime.positionBackup = Int32.Parse(gvBackupset.SelectedRows[0].Cells[0].Value.ToString());
             frmRestoreAtTime.datetimeBackup = DateTime.Parse(gvBackupset.SelectedRows[0].Cells[2].Value.ToString());
             frmRestoreAtTime.ShowDialog();
+        }
+
+        private void btnDisconnect_Click(object sender, EventArgs e)
+        {
+            Program.conn.Close();
+            this.Close();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

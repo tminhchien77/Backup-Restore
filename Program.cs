@@ -17,10 +17,10 @@ namespace backup_restore
         public static String connstr;
         public static String connstr_publisher = "Data Source=DESKTOP-R6465LG;Initial Catalog=BANVE_SANBONG;Integrated Security=True";
         public static SqlDataReader myReader;
-        public static String servername = "DESKTOP-R6465LG";
-        public static String username = "sa";
-        public static String password = "123";
-        public static String database = "BANVE_SANBONG";
+        public static String servername = "";
+        public static String username = "";
+        public static String password = "";
+        public static String database = "";
         public static String mlogin = "";
 
         public static string defaultPath = "D:/Program Files/MSSQL/backup";
@@ -42,8 +42,8 @@ namespace backup_restore
             }
             catch (Exception e)
             {
-                MessageBox.Show("Lỗi kết nối với cơ sở dữ liệu.\n Bạn xem lại uername và password.\n " + e.Message, "", MessageBoxButtons.OK);
-                return 0;
+                MessageBox.Show("Lỗi kết nối với SERVER.\n Bạn xem lại username và password.\n " + e.Message, "", MessageBoxButtons.OK);
+                return -1;
             }
 
         }
@@ -118,8 +118,8 @@ namespace backup_restore
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            ConnectDB();
-            Application.Run(new FormMain());
+            /*Application.Run(new FormMain());*/
+            Application.Run(new FormLogin());
         }
     }
 }
