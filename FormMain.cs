@@ -39,6 +39,7 @@ namespace backup_restore
 
         private void databasesDataGridView_SelectionChanged(object sender, EventArgs e)
         {
+            
             string idDb = gvDatabases.SelectedRows[0].Cells[1].Value.ToString();
             Program.database= gvDatabases.SelectedRows[0].Cells[0].Value.ToString();
             try
@@ -61,12 +62,15 @@ namespace backup_restore
             else   btnCreateDevice.Enabled = true;
             try
             {
+                this.backupsetTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.backupsetTableAdapter.Fill(this.dataSet.backupset, Program.database);
             }
             catch (System.Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
+            if (!btnCreateDevice.Enabled && bsBackupset.Count <= 0)
+                btnRestoreAtTime.Enabled = false;
         }
 
         private void btnCreateDevice_Click(object sender, EventArgs e)
@@ -84,25 +88,48 @@ namespace backup_restore
                 return;
             }
         }
-
+        private void backupDB()
+        {
+            String str = "BACKUP DATABASE " + Program.database + " TO DEVICE_" + Program.database;
+            if (checkBoxWithInit.Checked)
+                if (MessageBox.Show("Bạn chắc chắn muốn xoá các bản sao lưu cũ?", "Xác nhận", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    str += " WITH INIT";
+            if (Program.execNonQuery(str) < 0)
+            {
+                MessageBox.Show("Lỗi sao lưu cơ sở dữ liệu " + Program.database);
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Sao lưu cơ sở dữ liệu thành công!");
+                checkBoxWithInit.Checked = false;
+            }
+                
+        }
         private void btnBackup_Click(object sender, EventArgs e)
         {
-            String str = "BACKUP DATABASE "+Program.database+" TO DEVICE_"+Program.database;
+            
+            using (FormWait frm = new FormWait(backupDB))
+            {
+                /*this.Hide();*/
+                frm.ShowDialog(this);
+            }
             try
             {
-                Program.execNonQuery(str);
+                this.backupsetTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.backupsetTableAdapter.Fill(this.dataSet.backupset, Program.database);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi tạo backup device\n" + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi backup device\n" + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK);
                 return;
             }
         }
 
         private void btnCreateDevice_EnabledChanged(object sender, EventArgs e)
         {
-            btnBackup.Enabled= btnRestore.Enabled = !btnCreateDevice.Enabled;
+            btnBackup.Enabled= btnRestore.Enabled = btnRestoreAtTime.Enabled = !btnCreateDevice.Enabled;
+            
             
         }
 
@@ -124,10 +151,10 @@ namespace backup_restore
             }
         }
 
-        private void btnStoreAtTime_Click(object sender, EventArgs e)
+        private void btnReStoreAtTime_Click(object sender, EventArgs e)
         {
             FormRestoreAtTime frmRestoreAtTime = new FormRestoreAtTime();
-            frmRestoreAtTime.positionBackup= Int32.Parse(gvBackupset.SelectedRows[0].Cells[0].Value.ToString());
+            frmRestoreAtTime.positionBackup = Int32.Parse(gvBackupset.SelectedRows[0].Cells[0].Value.ToString());
             frmRestoreAtTime.datetimeBackup = DateTime.Parse(gvBackupset.SelectedRows[0].Cells[2].Value.ToString());
             frmRestoreAtTime.ShowDialog();
         }

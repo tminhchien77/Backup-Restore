@@ -41,6 +41,9 @@
             this.databasesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet = new backup_restore.DataSet();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.checkBoxWithInit = new System.Windows.Forms.CheckBox();
             this.gvBackupset = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,23 +51,21 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsBackupset = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnStoreAtTime = new System.Windows.Forms.Button();
+            this.btnRestoreAtTime = new System.Windows.Forms.Button();
             this.btnRestore = new System.Windows.Forms.Button();
             this.btnBackup = new System.Windows.Forms.Button();
             this.btnCreateDevice = new System.Windows.Forms.Button();
             this.databasesTableAdapter = new backup_restore.DataSetTableAdapters.databasesTableAdapter();
             this.tableAdapterManager = new backup_restore.DataSetTableAdapters.TableAdapterManager();
             this.backupsetTableAdapter = new backup_restore.DataSetTableAdapters.backupsetTableAdapter();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.gvDatabases)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databasesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvBackupset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsBackupset)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // gvDatabases
@@ -157,6 +158,34 @@
             this.panel2.Size = new System.Drawing.Size(620, 390);
             this.panel2.TabIndex = 2;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.checkBoxWithInit);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 313);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(620, 77);
+            this.panel3.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(265, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(150, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Xoá tất cả các bản sao lưu cũ";
+            // 
+            // checkBoxWithInit
+            // 
+            this.checkBoxWithInit.AutoSize = true;
+            this.checkBoxWithInit.Location = new System.Drawing.Point(244, 29);
+            this.checkBoxWithInit.Name = "checkBoxWithInit";
+            this.checkBoxWithInit.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxWithInit.TabIndex = 0;
+            this.checkBoxWithInit.UseVisualStyleBackColor = true;
+            // 
             // gvBackupset
             // 
             this.gvBackupset.AllowUserToAddRows = false;
@@ -195,7 +224,7 @@
             this.gvBackupset.ReadOnly = true;
             this.gvBackupset.RowHeadersVisible = false;
             this.gvBackupset.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvBackupset.Size = new System.Drawing.Size(620, 286);
+            this.gvBackupset.Size = new System.Drawing.Size(620, 313);
             this.gvBackupset.TabIndex = 0;
             this.gvBackupset.VirtualMode = true;
             // 
@@ -239,7 +268,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(160)))), ((int)(((byte)(218)))));
-            this.panel1.Controls.Add(this.btnStoreAtTime);
+            this.panel1.Controls.Add(this.btnRestoreAtTime);
             this.panel1.Controls.Add(this.btnRestore);
             this.panel1.Controls.Add(this.btnBackup);
             this.panel1.Controls.Add(this.btnCreateDevice);
@@ -249,23 +278,23 @@
             this.panel1.Size = new System.Drawing.Size(800, 60);
             this.panel1.TabIndex = 3;
             // 
-            // btnStoreAtTime
+            // btnRestoreAtTime
             // 
-            this.btnStoreAtTime.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnStoreAtTime.FlatAppearance.BorderSize = 0;
-            this.btnStoreAtTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStoreAtTime.ForeColor = System.Drawing.Color.Black;
-            this.btnStoreAtTime.Image = ((System.Drawing.Image)(resources.GetObject("btnStoreAtTime.Image")));
-            this.btnStoreAtTime.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStoreAtTime.Location = new System.Drawing.Point(405, 0);
-            this.btnStoreAtTime.Name = "btnStoreAtTime";
-            this.btnStoreAtTime.Size = new System.Drawing.Size(125, 60);
-            this.btnStoreAtTime.TabIndex = 3;
-            this.btnStoreAtTime.Text = "Phục hồi với mốc thời gian";
-            this.btnStoreAtTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStoreAtTime.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnStoreAtTime.UseVisualStyleBackColor = true;
-            this.btnStoreAtTime.Click += new System.EventHandler(this.btnStoreAtTime_Click);
+            this.btnRestoreAtTime.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnRestoreAtTime.FlatAppearance.BorderSize = 0;
+            this.btnRestoreAtTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestoreAtTime.ForeColor = System.Drawing.Color.Black;
+            this.btnRestoreAtTime.Image = ((System.Drawing.Image)(resources.GetObject("btnRestoreAtTime.Image")));
+            this.btnRestoreAtTime.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRestoreAtTime.Location = new System.Drawing.Point(405, 0);
+            this.btnRestoreAtTime.Name = "btnRestoreAtTime";
+            this.btnRestoreAtTime.Size = new System.Drawing.Size(125, 60);
+            this.btnRestoreAtTime.TabIndex = 3;
+            this.btnRestoreAtTime.Text = "Phục hồi với mốc thời gian";
+            this.btnRestoreAtTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRestoreAtTime.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRestoreAtTime.UseVisualStyleBackColor = true;
+            this.btnRestoreAtTime.Click += new System.EventHandler(this.btnReStoreAtTime_Click);
             // 
             // btnRestore
             // 
@@ -335,24 +364,6 @@
             // 
             this.backupsetTableAdapter.ClearBeforeFill = true;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.checkBox1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 286);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(620, 104);
-            this.panel3.TabIndex = 1;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(122, 43);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -368,11 +379,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.databasesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvBackupset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsBackupset)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -388,7 +399,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCreateDevice;
-        private System.Windows.Forms.Button btnStoreAtTime;
+        private System.Windows.Forms.Button btnRestoreAtTime;
         private System.Windows.Forms.Button btnRestore;
         private System.Windows.Forms.Button btnBackup;
         private System.Windows.Forms.BindingSource bsBackupset;
@@ -399,7 +410,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBoxWithInit;
+        private System.Windows.Forms.Label label1;
     }
 }
 
