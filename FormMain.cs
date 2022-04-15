@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace backup_restore
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
         }
@@ -108,10 +108,10 @@ namespace backup_restore
 
         private void btnRestore_Click(object sender, EventArgs e)
         {
-            int posittion= Int32.Parse(gvBackupset.SelectedRows[0].Cells[0].Value.ToString());
+            int position= Int32.Parse(gvBackupset.SelectedRows[0].Cells[0].Value.ToString());
             String str = "ALTER DATABASE "+Program.database+" SET SINGLE_USER WITH ROLLBACK IMMEDIATE \n" +
-                "USE tempdb \n" +
-                "RESTORE DATABASE "+Program.database+" FROM  DEVICE_"+Program.database+" WITH FILE = "+posittion+", REPLACE \n" +
+                "USE master \n" +
+                "RESTORE DATABASE "+Program.database+" FROM  DEVICE_"+Program.database+" WITH FILE = "+position+", REPLACE \n" +
                 "ALTER DATABASE "+Program.database+"  SET MULTI_USER";
             try
             {
@@ -126,7 +126,10 @@ namespace backup_restore
 
         private void btnStoreAtTime_Click(object sender, EventArgs e)
         {
-
+            FormRestoreAtTime frmRestoreAtTime = new FormRestoreAtTime();
+            frmRestoreAtTime.positionBackup= Int32.Parse(gvBackupset.SelectedRows[0].Cells[0].Value.ToString());
+            frmRestoreAtTime.datetimeBackup = DateTime.Parse(gvBackupset.SelectedRows[0].Cells[2].Value.ToString());
+            frmRestoreAtTime.ShowDialog();
         }
     }
 }
