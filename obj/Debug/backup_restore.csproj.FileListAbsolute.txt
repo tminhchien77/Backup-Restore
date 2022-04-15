@@ -3,9 +3,11 @@ G:\MyFile\School\HKII-Y4\ChuyenDe\Projects\backup_restore\bin\Debug\backup_resto
 G:\MyFile\School\HKII-Y4\ChuyenDe\Projects\backup_restore\bin\Debug\backup_restore.pdb
 G:\MyFile\School\HKII-Y4\ChuyenDe\Projects\backup_restore\obj\Debug\backup_restore.csproj.AssemblyReference.cache
 G:\MyFile\School\HKII-Y4\ChuyenDe\Projects\backup_restore\obj\Debug\backup_restore.csproj.SuggestedBindingRedirects.cache
-G:\MyFile\School\HKII-Y4\ChuyenDe\Projects\backup_restore\obj\Debug\backup_restore.Form1.resources
 G:\MyFile\School\HKII-Y4\ChuyenDe\Projects\backup_restore\obj\Debug\backup_restore.Properties.Resources.resources
 G:\MyFile\School\HKII-Y4\ChuyenDe\Projects\backup_restore\obj\Debug\backup_restore.csproj.GenerateResource.cache
 G:\MyFile\School\HKII-Y4\ChuyenDe\Projects\backup_restore\obj\Debug\backup_restore.csproj.CoreCompileInputs.cache
 G:\MyFile\School\HKII-Y4\ChuyenDe\Projects\backup_restore\obj\Debug\backup_restore.exe
 G:\MyFile\School\HKII-Y4\ChuyenDe\Projects\backup_restore\obj\Debug\backup_restore.pdb
+G:\MyFile\School\HKII-Y4\ChuyenDe\Projects\backup_restore\obj\Debug\backup_restore.FormMain.resources
+G:\MyFile\School\HKII-Y4\ChuyenDe\Projects\backup_restore\obj\Debug\backup_restore.FormRestoreAtTime.resources
+G:\MyFile\School\HKII-Y4\ChuyenDe\Projects\backup_restore\obj\Debug\backup_restore.FormWait.resources
