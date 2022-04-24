@@ -73,7 +73,7 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(320, 589);
             this.panel1.TabIndex = 0;
@@ -95,12 +95,12 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(193, 520);
+            this.label5.Location = new System.Drawing.Point(184, 517);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 16);
+            this.label5.Size = new System.Drawing.Size(86, 16);
             this.label5.TabIndex = 5;
-            this.label5.Text = "Develop by";
+            this.label5.Text = "Developed by";
             // 
             // label4
             // 
@@ -156,7 +156,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(72, 18);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(171, 187);
             this.pictureBox1.TabIndex = 0;
@@ -170,7 +170,7 @@
             this.panel2.Controls.Add(this.pnlServer);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(320, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(467, 589);
             this.panel2.TabIndex = 1;
@@ -182,7 +182,7 @@
             this.btnConnect.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConnect.ForeColor = System.Drawing.Color.White;
             this.btnConnect.Location = new System.Drawing.Point(172, 460);
-            this.btnConnect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(4);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(152, 83);
             this.btnConnect.TabIndex = 2;
@@ -197,7 +197,7 @@
             this.pnlPwd.Controls.Add(this.txtPwd);
             this.pnlPwd.Controls.Add(this.pictureBoxPwd);
             this.pnlPwd.Location = new System.Drawing.Point(0, 339);
-            this.pnlPwd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlPwd.Margin = new System.Windows.Forms.Padding(4);
             this.pnlPwd.Name = "pnlPwd";
             this.pnlPwd.Size = new System.Drawing.Size(467, 66);
             this.pnlPwd.TabIndex = 1;
@@ -208,7 +208,7 @@
             this.pictureBoxEye.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxEye.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxEye.Image")));
             this.pictureBoxEye.Location = new System.Drawing.Point(440, 23);
-            this.pictureBoxEye.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxEye.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxEye.Name = "pictureBoxEye";
             this.pictureBoxEye.Size = new System.Drawing.Size(21, 23);
             this.pictureBoxEye.TabIndex = 11;
@@ -224,7 +224,7 @@
             this.txtPwd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.txtPwd.Location = new System.Drawing.Point(87, 23);
-            this.txtPwd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPwd.Margin = new System.Windows.Forms.Padding(4);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.Size = new System.Drawing.Size(340, 20);
             this.txtPwd.TabIndex = 10;
@@ -236,7 +236,7 @@
             this.pictureBoxPwd.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBoxPwd.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxPwd.Image")));
             this.pictureBoxPwd.Location = new System.Drawing.Point(13, 18);
-            this.pictureBoxPwd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxPwd.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxPwd.Name = "pictureBoxPwd";
             this.pictureBoxPwd.Size = new System.Drawing.Size(32, 35);
             this.pictureBoxPwd.TabIndex = 9;
@@ -248,7 +248,7 @@
             this.pnlUser.Controls.Add(this.txtUser);
             this.pnlUser.Controls.Add(this.pictureBoxUser);
             this.pnlUser.Location = new System.Drawing.Point(0, 253);
-            this.pnlUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlUser.Margin = new System.Windows.Forms.Padding(4);
             this.pnlUser.Name = "pnlUser";
             this.pnlUser.Size = new System.Drawing.Size(467, 66);
             this.pnlUser.TabIndex = 1;
@@ -260,7 +260,7 @@
             this.txtUser.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.txtUser.Location = new System.Drawing.Point(87, 23);
-            this.txtUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUser.Margin = new System.Windows.Forms.Padding(4);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(340, 20);
             this.txtUser.TabIndex = 9;
@@ -271,7 +271,7 @@
             this.pictureBoxUser.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBoxUser.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUser.Image")));
             this.pictureBoxUser.Location = new System.Drawing.Point(13, 18);
-            this.pictureBoxUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxUser.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxUser.Name = "pictureBoxUser";
             this.pictureBoxUser.Size = new System.Drawing.Size(32, 35);
             this.pictureBoxUser.TabIndex = 8;
@@ -283,7 +283,7 @@
             this.pnlServer.Controls.Add(this.txtServer);
             this.pnlServer.Controls.Add(this.pictureBoxServer);
             this.pnlServer.Location = new System.Drawing.Point(0, 83);
-            this.pnlServer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlServer.Margin = new System.Windows.Forms.Padding(4);
             this.pnlServer.Name = "pnlServer";
             this.pnlServer.Size = new System.Drawing.Size(467, 80);
             this.pnlServer.TabIndex = 0;
@@ -295,7 +295,7 @@
             this.txtServer.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtServer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.txtServer.Location = new System.Drawing.Point(87, 27);
-            this.txtServer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtServer.Margin = new System.Windows.Forms.Padding(4);
             this.txtServer.Name = "txtServer";
             this.txtServer.Size = new System.Drawing.Size(340, 24);
             this.txtServer.TabIndex = 8;
@@ -306,7 +306,7 @@
             this.pictureBoxServer.BackColor = System.Drawing.Color.White;
             this.pictureBoxServer.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxServer.Image")));
             this.pictureBoxServer.Location = new System.Drawing.Point(13, 22);
-            this.pictureBoxServer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxServer.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxServer.Name = "pictureBoxServer";
             this.pictureBoxServer.Size = new System.Drawing.Size(43, 47);
             this.pictureBoxServer.TabIndex = 7;
@@ -321,7 +321,8 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormLogin";
             this.Text = "Kết nối đến SERVER";
             this.panel1.ResumeLayout(false);

@@ -20,20 +20,9 @@ namespace backup_restore
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dataSet.databases' table. You can move, or remove it, as needed.
+            /*this.databasesTableAdapter.Connection.ConnectionString = Program.connstr;*/
+            this.databasesTableAdapter.Connection.ConnectionString = Program.connstr;
             this.databasesTableAdapter.Fill(this.dataSet.databases);
-
-        }
-
-        private void fillToolStripButton_Click(object sender, EventArgs e)
-        {
-            /*try
-            {
-                this.backupsetTableAdapter.Fill(this.dataSet.backupset, dBNAMEToolStripTextBox.Text);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }*/
 
         }
 
@@ -44,6 +33,7 @@ namespace backup_restore
             Program.database= gvDatabases.SelectedRows[0].Cells[0].Value.ToString();
             try
             {
+                this.backupsetTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.backupsetTableAdapter.Fill(this.dataSet.backupset, idDb);
             }
             catch (System.Exception ex)
@@ -71,6 +61,8 @@ namespace backup_restore
             }
             if (!btnCreateDevice.Enabled && bsBackupset.Count <= 0)
                 btnRestoreAtTime.Enabled = false;
+            else if (!btnRestoreAtTime.Enabled && bsBackupset.Count > 0)
+                btnRestoreAtTime.Enabled = true;
         }
 
         private void btnCreateDevice_Click(object sender, EventArgs e)
@@ -131,35 +123,38 @@ namespace backup_restore
             btnBackup.Enabled= btnRestore.Enabled = btnRestoreAtTime.Enabled = !btnCreateDevice.Enabled;
         }
 
+        private void restoreDB()
+        {
+            int position = Int32.Parse(gvBackupset.SelectedRows[0].Cells[0].Value.ToString());
+            String str = "ALTER DATABASE " + Program.database + " SET SINGLE_USER WITH ROLLBACK IMMEDIATE \n" +
+                "USE master \n" +
+                "RESTORE DATABASE " + Program.database + " FROM  DEVICE_" + Program.database + " WITH FILE = " + position + ", REPLACE \n" +
+                "ALTER DATABASE " + Program.database + "  SET MULTI_USER";
+            if (Program.execNonQuery(str, "Lỗi phục hồi cơ sở dữ liệu!") > 0)
+            {
+                MessageBox.Show("Thành công");
+            }
+        }
         private void btnRestore_Click(object sender, EventArgs e)
         {
-            int position= Int32.Parse(gvBackupset.SelectedRows[0].Cells[0].Value.ToString());
-            String str = "ALTER DATABASE "+Program.database+" SET SINGLE_USER WITH ROLLBACK IMMEDIATE \n" +
-                "USE master \n" +
-                "RESTORE DATABASE "+Program.database+" FROM  DEVICE_"+Program.database+" WITH FILE = "+position+", REPLACE \n" +
-                "ALTER DATABASE "+Program.database+"  SET MULTI_USER";
-            try
+            
+            using (FormWait frm = new FormWait(restoreDB))
             {
-                Program.execNonQuery(str);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi tạo backup device\n" + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK);
-                return;
+                frm.ShowDialog(this);
             }
         }
 
         private void btnReStoreAtTime_Click(object sender, EventArgs e)
         {
             FormRestoreAtTime frmRestoreAtTime = new FormRestoreAtTime();
-            frmRestoreAtTime.positionBackup = Int32.Parse(gvBackupset.SelectedRows[0].Cells[0].Value.ToString());
-            frmRestoreAtTime.datetimeBackup = DateTime.Parse(gvBackupset.SelectedRows[0].Cells[2].Value.ToString());
+            frmRestoreAtTime.datetimeBackup = DateTime.Parse(gvBackupset.Rows[0].Cells[2].Value.ToString());
             frmRestoreAtTime.ShowDialog();
         }
 
         private void btnDisconnect_Click(object sender, EventArgs e)
         {
             Program.conn.Close();
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 

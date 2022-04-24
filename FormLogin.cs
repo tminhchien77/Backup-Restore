@@ -93,17 +93,20 @@ namespace backup_restore
             Program.username = txtUser.Text;
             Program.password = txtPwd.Text;
 
-            if (Program.ConnectDB() <= 0) return;
+            if (Program.ConnectServer() <= 0) return;
 
             Program.conn.Close();
 
             FormMain frmMain = new FormMain();
             Hide();
-
-            frmMain.ShowDialog();
-            /*txt.Text = "";
-            txtPass.Text = "";*/
-            Show();
+            if (frmMain.ShowDialog() == DialogResult.OK)
+            {
+                txtPwd.Text = "";
+                txtServer.Text = "";
+                txtUser.Text = "";
+                Show();
+            }
+                
         }
     }
 }

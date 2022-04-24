@@ -25,7 +25,7 @@ namespace backup_restore
 
         public static string defaultPath = "D:/Program Files/MSSQL/backup";
 
-        public static int ConnectDB()
+        public static int ConnectServer()
         {
             if (Program.conn != null && Program.conn.State == ConnectionState.Open)
             {
