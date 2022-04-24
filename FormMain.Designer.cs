@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.gvDatabases = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +52,7 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsBackupset = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDisconnect = new System.Windows.Forms.Button();
             this.btnRestoreAtTime = new System.Windows.Forms.Button();
             this.btnRestore = new System.Windows.Forms.Button();
             this.btnBackup = new System.Windows.Forms.Button();
@@ -58,14 +60,19 @@
             this.databasesTableAdapter = new backup_restore.DataSetTableAdapters.databasesTableAdapter();
             this.tableAdapterManager = new backup_restore.DataSetTableAdapters.TableAdapterManager();
             this.backupsetTableAdapter = new backup_restore.DataSetTableAdapters.backupsetTableAdapter();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.gvDatabases)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databasesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvBackupset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsBackupset)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // gvDatabases
@@ -83,7 +90,7 @@
             this.gvDatabases.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
@@ -98,7 +105,7 @@
             this.gvDatabases.DataSource = this.databasesBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(231)))), ((int)(((byte)(228)))));
@@ -107,7 +114,7 @@
             this.gvDatabases.DefaultCellStyle = dataGridViewCellStyle3;
             this.gvDatabases.Dock = System.Windows.Forms.DockStyle.Left;
             this.gvDatabases.EnableHeadersVisualStyles = false;
-            this.gvDatabases.Location = new System.Drawing.Point(0, 60);
+            this.gvDatabases.Location = new System.Drawing.Point(0, 99);
             this.gvDatabases.MultiSelect = false;
             this.gvDatabases.Name = "gvDatabases";
             this.gvDatabases.ReadOnly = true;
@@ -150,10 +157,8 @@
             // panel2
             // 
             this.panel2.AutoScroll = true;
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.gvBackupset);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(180, 60);
+            this.panel2.Location = new System.Drawing.Point(180, 99);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(620, 390);
             this.panel2.TabIndex = 2;
@@ -163,7 +168,7 @@
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.checkBoxWithInit);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 313);
+            this.panel3.Location = new System.Drawing.Point(180, 412);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(620, 77);
             this.panel3.TabIndex = 1;
@@ -173,7 +178,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(265, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 13);
+            this.label1.Size = new System.Drawing.Size(155, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Xoá tất cả các bản sao lưu cũ";
             // 
@@ -201,7 +206,7 @@
             this.gvBackupset.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -215,10 +220,18 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
             this.gvBackupset.DataSource = this.bsBackupset;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvBackupset.DefaultCellStyle = dataGridViewCellStyle6;
             this.gvBackupset.Dock = System.Windows.Forms.DockStyle.Top;
             this.gvBackupset.EnableHeadersVisualStyles = false;
             this.gvBackupset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.gvBackupset.Location = new System.Drawing.Point(0, 0);
+            this.gvBackupset.Location = new System.Drawing.Point(180, 99);
             this.gvBackupset.MultiSelect = false;
             this.gvBackupset.Name = "gvBackupset";
             this.gvBackupset.ReadOnly = true;
@@ -267,27 +280,48 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(160)))), ((int)(((byte)(218)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.panel1.Controls.Add(this.btnDisconnect);
             this.panel1.Controls.Add(this.btnRestoreAtTime);
             this.panel1.Controls.Add(this.btnRestore);
             this.panel1.Controls.Add(this.btnBackup);
             this.panel1.Controls.Add(this.btnCreateDevice);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 39);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 60);
             this.panel1.TabIndex = 3;
+            // 
+            // btnDisconnect
+            // 
+            this.btnDisconnect.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDisconnect.FlatAppearance.BorderSize = 0;
+            this.btnDisconnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDisconnect.ForeColor = System.Drawing.Color.White;
+            this.btnDisconnect.Image = ((System.Drawing.Image)(resources.GetObject("btnDisconnect.Image")));
+            this.btnDisconnect.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDisconnect.Location = new System.Drawing.Point(530, 0);
+            this.btnDisconnect.Name = "btnDisconnect";
+            this.btnDisconnect.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnDisconnect.Size = new System.Drawing.Size(125, 60);
+            this.btnDisconnect.TabIndex = 4;
+            this.btnDisconnect.Text = "Huỷ kết nối";
+            this.btnDisconnect.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDisconnect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDisconnect.UseVisualStyleBackColor = true;
+            this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
             // 
             // btnRestoreAtTime
             // 
             this.btnRestoreAtTime.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnRestoreAtTime.FlatAppearance.BorderSize = 0;
             this.btnRestoreAtTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestoreAtTime.ForeColor = System.Drawing.Color.Black;
+            this.btnRestoreAtTime.ForeColor = System.Drawing.Color.White;
             this.btnRestoreAtTime.Image = ((System.Drawing.Image)(resources.GetObject("btnRestoreAtTime.Image")));
             this.btnRestoreAtTime.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRestoreAtTime.Location = new System.Drawing.Point(405, 0);
             this.btnRestoreAtTime.Name = "btnRestoreAtTime";
+            this.btnRestoreAtTime.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnRestoreAtTime.Size = new System.Drawing.Size(125, 60);
             this.btnRestoreAtTime.TabIndex = 3;
             this.btnRestoreAtTime.Text = "Phục hồi với mốc thời gian";
@@ -301,11 +335,12 @@
             this.btnRestore.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnRestore.FlatAppearance.BorderSize = 0;
             this.btnRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestore.ForeColor = System.Drawing.Color.Black;
+            this.btnRestore.ForeColor = System.Drawing.Color.White;
             this.btnRestore.Image = ((System.Drawing.Image)(resources.GetObject("btnRestore.Image")));
             this.btnRestore.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRestore.Location = new System.Drawing.Point(280, 0);
             this.btnRestore.Name = "btnRestore";
+            this.btnRestore.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnRestore.Size = new System.Drawing.Size(125, 60);
             this.btnRestore.TabIndex = 2;
             this.btnRestore.Text = "Phục hồi";
@@ -319,11 +354,12 @@
             this.btnBackup.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnBackup.FlatAppearance.BorderSize = 0;
             this.btnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackup.ForeColor = System.Drawing.Color.Black;
+            this.btnBackup.ForeColor = System.Drawing.Color.White;
             this.btnBackup.Image = ((System.Drawing.Image)(resources.GetObject("btnBackup.Image")));
             this.btnBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBackup.Location = new System.Drawing.Point(155, 0);
             this.btnBackup.Name = "btnBackup";
+            this.btnBackup.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnBackup.Size = new System.Drawing.Size(125, 60);
             this.btnBackup.TabIndex = 1;
             this.btnBackup.Text = "Sao lưu";
@@ -337,10 +373,11 @@
             this.btnCreateDevice.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnCreateDevice.FlatAppearance.BorderSize = 0;
             this.btnCreateDevice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateDevice.ForeColor = System.Drawing.Color.Black;
+            this.btnCreateDevice.ForeColor = System.Drawing.Color.White;
             this.btnCreateDevice.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateDevice.Image")));
             this.btnCreateDevice.Location = new System.Drawing.Point(0, 0);
             this.btnCreateDevice.Name = "btnCreateDevice";
+            this.btnCreateDevice.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnCreateDevice.Size = new System.Drawing.Size(155, 60);
             this.btnCreateDevice.TabIndex = 0;
             this.btnCreateDevice.Text = "Tạo backup device";
@@ -364,26 +401,83 @@
             // 
             this.backupsetTableAdapter.ClearBeforeFill = true;
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.btnExit);
+            this.panel4.Controls.Add(this.pictureBox1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(800, 39);
+            this.panel4.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(45, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(119, 19);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Backup && Restore";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.Red;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Location = new System.Drawing.Point(770, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(30, 30);
+            this.btnExit.TabIndex = 1;
+            this.btnExit.Text = "X";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(8, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 489);
+            this.ControlBox = false;
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.gvBackupset);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.gvDatabases);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel4);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvDatabases)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databasesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvBackupset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsBackupset)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -412,6 +506,11 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.CheckBox checkBoxWithInit;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnDisconnect;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label label2;
     }
 }
 

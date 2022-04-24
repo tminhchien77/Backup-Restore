@@ -11,3 +11,4 @@ G:\MyFile\School\HKII-Y4\ChuyenDe\Projects\backup_restore\obj\Debug\backup_resto
 G:\MyFile\School\HKII-Y4\ChuyenDe\Projects\backup_restore\obj\Debug\backup_restore.FormMain.resources
 G:\MyFile\School\HKII-Y4\ChuyenDe\Projects\backup_restore\obj\Debug\backup_restore.FormRestoreAtTime.resources
 G:\MyFile\School\HKII-Y4\ChuyenDe\Projects\backup_restore\obj\Debug\backup_restore.FormWait.resources
+G:\MyFile\School\HKII-Y4\ChuyenDe\Projects\backup_restore\obj\Debug\backup_restore.FormLogin.resources

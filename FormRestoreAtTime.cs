@@ -12,7 +12,6 @@ namespace backup_restore
 {
     public partial class FormRestoreAtTime : Form
     {
-        public int positionBackup;
         public DateTime datetimeBackup;
         public FormRestoreAtTime()
         {
@@ -23,29 +22,22 @@ namespace backup_restore
 
         void restoreAtTime()
         {
-            String str = "USE master \n" +
+            String str = "USE tempdb \n" +
                 "ALTER DATABASE " + Program.database + " SET SINGLE_USER WITH ROLLBACK IMMEDIATE \n" +
-                "BACKUP LOG " + Program.database + " TO DISK = '" + Program.defaultPath + "/" + Program.database + ".trn' WITH NORECOVERY \n" +
-                "RESTORE DATABASE " + Program.database + " FROM " + "DEVICE_" + Program.database + " WITH FILE=" + positionBackup + ", NORECOVERY\n" +
-                "RESTORE DATABASE " + Program.database + " FROM DISK = '" + Program.defaultPath + "/" + Program.database + ".trn' WITH STOPAT='" + dtpDate.Value.ToString("yyyy-MM-dd") + " " + dtpTime.Value.TimeOfDay.ToString() + "'\n" +
+                "BACKUP LOG " + Program.database + " TO DISK = '" + Program.defaultPath + "/backuplogfile.trn' WITH INIT \n" +
+                "RESTORE DATABASE " + Program.database + " FROM DISK = '" + Program.defaultPath + "/DEVICE_" + Program.database + ".bak' WITH NORECOVERY, REPLACE\n" +
+                "RESTORE DATABASE " + Program.database + " FROM DISK = '" + Program.defaultPath + "/backuplogfile.trn' WITH STOPAT='" + dtpDate.Value.ToString("yyyy-MM-dd") + " " + dtpTime.Value.TimeOfDay.ToString() + "'\n" +
                 "ALTER DATABASE " + Program.database + "  SET MULTI_USER";
-            try
+/*            "RESTORE DATABASE " + Program.database + " FROM  DEVICE_" + Program.database + " WITH FILE = " + position + ", REPLACE \n" +
+*/            if (Program.execNonQuery(str, "Lỗi phục hồi cơ sở dữ liệu!") > 0)
             {
-                if(Program.execNonQuery(str, "Lỗi restore dữ liệu!") > 0)
-                {
-                    MessageBox.Show("Thành công");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi tạo backup device\n" + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK);
-                return;
+                MessageBox.Show("Thành công");
             }
         }
 
         private void btnRestore_Click(object sender, EventArgs e)
         {
-            if (dtpDate.Value.Date == datetimeBackup.Date && dtpTime.Value.TimeOfDay.Ticks < datetimeBackup.TimeOfDay.Ticks)
+           /* if (dtpDate.Value.Date == datetimeBackup.Date && dtpTime.Value.TimeOfDay.Ticks < datetimeBackup.TimeOfDay.Ticks)
             {
                 MessageBox.Show("Thời điểm phục hồi phải sau thời điểm sao lưu: " + datetimeBackup.ToString("dd/MM/yyyy HH:mm:ss"), "", MessageBoxButtons.OK);
                 return ;
@@ -55,7 +47,7 @@ namespace backup_restore
             {
                 MessageBox.Show("Thời điểm phục hồi phải trước thời điểm hiện tại.", "", MessageBoxButtons.OK);
                 return;
-            }
+            }*/
             using (FormWait frm=new FormWait(restoreAtTime))
             {
                 this.Hide();
